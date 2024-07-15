@@ -11,6 +11,11 @@
 						"internalType": "uint256",
 						"name": "_tokenRewardRate",
 						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_transactionFeeRate",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -47,6 +52,37 @@
 					{
 						"indexed": true,
 						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "fee",
+						"type": "uint256"
+					}
+				],
+				"name": "PaymentProcessed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
 						"name": "user",
 						"type": "address"
 					},
@@ -74,6 +110,12 @@
 						"internalType": "address",
 						"name": "user",
 						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum ErrandApp.UserType",
+						"name": "userType",
+						"type": "uint8"
 					}
 				],
 				"name": "UserRegistered",
@@ -185,14 +227,31 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "_to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
 				"name": "payForService",
 				"outputs": [],
-				"stateMutability": "payable",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "enum ErrandApp.UserType",
+						"name": "_userType",
+						"type": "uint8"
+					}
+				],
 				"name": "registerUser",
 				"outputs": [],
 				"stateMutability": "nonpayable",
@@ -214,6 +273,19 @@
 			{
 				"inputs": [],
 				"name": "tokenRewardRate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "transactionFeeRate",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -248,6 +320,11 @@
 						"internalType": "uint256",
 						"name": "subscriptionExpiry",
 						"type": "uint256"
+					},
+					{
+						"internalType": "enum ErrandApp.UserType",
+						"name": "userType",
+						"type": "uint8"
 					}
 				],
 				"stateMutability": "view",
@@ -299,11 +376,11 @@
 	},
 	"sources": {
 		"contracts/errand.sol": {
-			"keccak256": "0x8968e81c595226208b90ef2afaaef9c8166467df54dcc970cf7e1dabad5f79be",
+			"keccak256": "0x523e1321149b99dc32968e2b17be4a9656cec036eb21712a28717995977a9a8b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d3dad12e9ac3f3f03582bc904a6b4cd4e2a09a5a70e58f4162ccd87156d92567",
-				"dweb:/ipfs/QmRpQkzEqAJy4pV2gMNsp6ueraNt61xQjesprSG6GrEmPo"
+				"bzz-raw://1a0f3e202e674eb5d3ecd63830f3ea3dd867c60268b031d4aa0c9b6a11eff216",
+				"dweb:/ipfs/QmS42ZD1rSU4Wn5P1ajwnGsdHqXJStZozwiZptTEbJ8yD1"
 			]
 		}
 	},
